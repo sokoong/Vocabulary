@@ -1,2 +1,3 @@
-header{padding: 10px;background: #eee}
-footer{padding: 10px;background: #eee}
+.container{width: 1140px;margin: 0 auto;padding: 0;}
+.grid{display: grid;grid-template-columns: 33% 33% 33%}
+.grid>form{padding: 15px;border: 1px solid #eee}
