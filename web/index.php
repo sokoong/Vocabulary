@@ -10,7 +10,7 @@
 		<thead>
 			<tr>
 				<th width="51"></th>
-				<th width="121">คำศัพท์</th>
+				<th width="121">คำศัพท์ <span>({{app.total | number}})</span></th>
 				<th width="156">คำอ่าน</th>
 				<th width="182">คำแปล</th>
 			</tr>
@@ -21,7 +21,7 @@
 				<td>{{word[0]}}</td>
 				<td>{{word[1]}}</td>
 				<td>
-					<input type="text" ng-if="app.quiz" ng-focus="app.quiz" on-enter="app.submit(key, word)" ng-model="app.currentText[key]" /><span ng-if="!app.quiz">{{word[2]}}</span>
+					<input type="text" ng-class="[{success: word[4]}, {error: !word[4]}]" ng-if="app.quiz" ng-focus="app.quiz" on-enter="app.submit(key, word)" ng-model="app.currentText[key]" /><span ng-if="!app.quiz">{{word[2]}}</span>
 					<p ng-if="word[3]">{{word[3]}}</p>
 				</td>
 			</tr>
@@ -30,8 +30,9 @@
 	<div>
 		<button id="loadmore" ng-if="!app.quiz" ng-click="app.loadmore()">Loadmore</button>
 	</div>
+	<p class="total"><b>{{app.correct | number}}</b>{{ app.wrong | number }}</p>
 
-	<a ng-href="{{app.quiz ? '/' : '/?try'}}" id="quiz" >{{app.quiz ? 'End' : 'Try'}}</a>
+	<a ng-href="{{app.quiz ? '/' : '/?try'}}" id="quiz" >{{app.quiz ? 'คำศัพท์' : 'ทดสอบ'}}</a>
 
 	<script type="text/javascript" src="words.js"></script>
 	<script type="text/javascript" src="js/angular.min.js"></script>

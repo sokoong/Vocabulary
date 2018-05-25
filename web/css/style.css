@@ -1,14 +1,20 @@
+*{border-}
 body{padding-top: 50px}
-table{color: #666;width: 750px;margin: 0 auto;font-family: Roboto,arial;font-weight: 300}
-thead{position: fixed;top: 0;left: 0;width: 750px;margin: 0 auto;right: 0;background: white;border-bottom: 1px solid #ccc;text-align: left;z-index: 1000}
+table{color: #666;width: 800px;margin: 0 auto;font-family: Roboto,arial;font-weight: 300}
+thead{position: fixed;top: 0;left: 0;width: 800px;margin: 0 auto;right: 0;background: white;border-bottom: 1px solid #ccc;text-align: left;z-index: 1000}
 thead th{font-weight: 600;text-align: left;}
-thead tr{display: grid;grid-template-columns: 10% 30% 30% 30%}
-tbody tr{display: grid;grid-template-columns: 10% 30% 30% 30%}
+thead th>span{font-size: 11px;color: #ccc;font-weight: 300;font-style: italic;}
+thead tr{display: grid;grid-template-columns: 10% 25% 25% 40%}
+tbody tr{display: grid;grid-template-columns: 10% 25% 25% 40%}
 tbody tr>td{vertical-align: middle;position: relative;}
 div{text-align: center;margin: 30px 0 0;padding: 10px 0 5px;border-top: 1px solid #eee;width: 750px;margin: 0 auto;margin-top: 30px}
 #quiz{position: fixed;bottom:15px;right: 25px;padding: 5px 20px;background:#069;color: white;border: 0;border-radius: 4px;text-decoration: none;}
 #loadmore{padding: 5px 15px;font-size: 13px;color: #333;background: #fff;border-color: #ccc;border-radius: 4px;cursor: pointer;outline: none;}
 #loadmore:hover{background: #f9f9f9;color: #111;border-color: #ababab}
-input[type='text']{padding: 5px; border: 0; border-bottom: 1px solid #eee; width: 100%; outline: none !important; font-size: 13px; color: #666;}
-tbody tr>td p{position: absolute;top: -18px;left: 5px;color: blue;font-size: 11px;}
+input[type='text']{padding: 5px; border: 0; border-bottom: 1px solid #eee; width: 100%; outline: none !important; font-size: 13px; color: orange;}
+tbody tr>td p{position: absolute;top: -3px;left: 5px;color: blue;font-size: 13px;}
 tbody tr>td:not(:last-child){padding-top: 11px;padding-bottom: 20px;}
+p.total{position: fixed; top: 0; right: 30px; font-size: 30px; padding: 0; background: #f9f9f9; width: 130px; height: 130px; border-radius: 50%; font-family: Arial,sans-serif; text-align: center; display: block;color: #c33;font-weight: 300;}
+p.total b{display: block;padding-top: 22px;border-bottom: 1px solid #eee;padding-bottom: 5px;margin-bottom: 5px;width: 80%;margin: 0 auto;margin-bottom: 7px;color: #090;font-weight: 300;}
+input[type='text'].success{color: #090;border-color: #090;text-align: right;transition: .3s all}
+input[type='text'].error{color: #c33;border-color: #c33;text-align: right;transition: .3s all}

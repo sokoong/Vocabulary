@@ -31,6 +31,9 @@ app.directive('ngFocus', function($timeout) {
 });
 app.controller('AppController', function() {
 	this.init = function() {
+		this.total = words.length;
+		this.correct = 0;
+		this.wrong = 0;
 		if(window.location.search == '?try'){
 			this.quiz = true;
 			this.perpage = 1;
@@ -51,13 +54,24 @@ app.controller('AppController', function() {
 		this.words = words.slice(0, this.current*this.perpage);
 	}
 	this.submit = function(key, word) {
-		console.log(this.currentText, this.current)
-		n = this.currentText.length
-		if(this.currentText[key] && this.currentText[n-1] && this.current <= n){
-			this.current += 1;
-			this.words = words.slice(0, this.current*this.perpage);
+		me = this;
+		n = me.currentText.length;
+		if(me.currentText[key] && me.currentText[n-1] && me.current <= n){
+			me.current += 1;
+			me.words = words.slice(0, me.current*me.perpage);
+			var arr = word[2].split(', ');
+			var res = arr.find(function(value){
+				return (value == me.currentText[key]);
+			});
+			if(res){
+				this.correct += 1;
+				word[4] = true;
+			}else{
+				this.wrong += 1;
+				word[4] = false;
+			}
 			word[3] = word[2];
-		}else if(this.current > n){
+		}else if(me.current > n){
 			word[3] = word[2];
 		}
 	}
