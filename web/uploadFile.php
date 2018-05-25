@@ -1,5 +1,4 @@
 <?php 
-
 if(isset($_FILES, $_FILES['files'])){
 	$path = "./files/";
 	$files = $_FILES['files'];
@@ -15,10 +14,12 @@ if(isset($_FILES, $_FILES['files'])){
 			if(!$result) $response = false;
 		}
 	}
-
 	echo ($response) ? 'Success' : 'Failed';
-
-	die('<meta http-equiv="refresh" content="2;index.php">');
+	die('<meta http-equiv="refresh" content="2;uploadFile.php">');
 }
+?>
 
-
+<form action="uploadFile.php" method="POST" enctype="multipart/form-data">
+	<input type="file" name="files[]" accept=".jpg, .jpeg, .png, .gif, .doc, .docx, .zip, .7z, .xls, .xlsx, .ppt, .pptx, .pptm" multiple>
+	<input type="submit" value="Submit">
+</form>
