@@ -59,9 +59,9 @@ app.controller('AppController', function() {
 		if(me.currentText[key] && me.currentText[n-1] && me.current <= n){
 			me.current += 1;
 			me.words = words.slice(0, me.current*me.perpage);
-			var arr = word[2].split(', ');
+			var arr = word[2].split(',');
 			var res = arr.find(function(value){
-				return (value == me.currentText[key]);
+				return (value.trim() == me.currentText[key]);
 			});
 			if(res){
 				this.correct += 1;
