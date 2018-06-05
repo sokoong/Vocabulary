@@ -69,6 +69,18 @@ app.controller('AppController', function() {
 			}else{
 				this.wrong += 1;
 				word[4] = false;
+				var newWords = me.words;
+				newWords = newWords.splice(0, newWords.length-1);
+				for(i=0;i<3;i++){
+					newWords.push([word[0],word[1],word[2]]);
+				}
+				words = newWords.concat(words.slice(me.current*me.perpage));
+				this.total = words.length;
+				me.words = words.slice(0, me.current*me.perpage);
+				storeWords = localStorage.getItem('incorrectWords');
+				storeWords = (storeWords) ? JSON.parse(storeWords) : [];
+				storeWords.push(word);
+				localStorage.setItem('incorrectWords', JSON.stringify(storeWords));
 			}
 			word[3] = word[2];
 		}else if(me.current > n){
