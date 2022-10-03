@@ -2,7 +2,7 @@ import json
 import os
 import random
 
-f = open('words.json', encoding="utf8")
+f = open('normal.json', encoding="utf8")
 words = json.load(f)
 f.close()
 
